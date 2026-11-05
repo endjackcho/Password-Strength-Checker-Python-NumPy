@@ -2,26 +2,6 @@ import os
 import numpy as np 
 special_char = "~`!@#$%^&*)(_+-=][}{:;<>,.?/\\ \'\' \"\""
 
-# def counter(p) :
-#     s_count = 0
-#     n_count = 0
-#     u_count = 0
-#     l_count = 0
-#     for i in p :
-#         if i in special_char :
-#             s_count += 2
-#         elif i.isnumeric() :
-#             n_count += 1.5
-#         else :
-#             if i.isupper() :
-#                 u_count += 1.5
-#             elif i.islower() :
-#                 l_count += 1
-#     return {
-#         "el" : np.array([s_count,n_count,u_count,l_count]),
-#         "lenth" : len(p)
-#     }
-
 def counter(p) :
     if not p.isnumeric() :
         s = [i for i in p if i in special_char]
