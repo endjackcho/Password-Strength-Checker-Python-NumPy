@@ -2,13 +2,14 @@ import os
 import numpy as np 
 special_char = "~`!@#$%^&*)(_+-=][}{:;<>,.?/\\ \'\' \"\""
 
+# Count charecters
 def counter(p) :
-    if not p.isnumeric() :
-        s = [i for i in p if i in special_char]
-        n = [i for i in p if i.isdigit()]
-        u = [i for i in p if i.isupper()]
-        l = [i for i in p if i.islower()]
-        r = [True if p.count(i) >= 3 else False for i in p]
+    if not p.isnumeric() : # Password shoudnt make with numbers only
+        s = [i for i in p if i in special_char] # Founding Special Character
+        n = [i for i in p if i.isdigit()] # Founding Numbers
+        u = [i for i in p if i.isupper()] # Founding Uppercase words
+        l = [i for i in p if i.islower()] # Fouunding Lowercase words
+        r = [True if p.count(i) >= 3 else False for i in p] # Checking repeat words
         return {
             "el" : np.array([(len(s) * 2), (len(n) * 1.5), (len(u) * 1.5), (len(l))]),
             "repeat" : r.count(True),
@@ -27,7 +28,7 @@ def cheker(p) :
 def main() :
     while True :
         password = input("Enter your password (\'\' For break): ")
-        os.system("cls")
+        os.system("cls") # Clearing Terminal
         if password == "" : break
         password = password.replace(" ","")
         print(f"\n- Your password is {cheker(password)} !\n")
